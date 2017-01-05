@@ -16,7 +16,34 @@ Route::get('/', function () {
 });
 
 
+
+
+
 Route::any('/wechat', 'WechatController@serve');
+
+/**
+ *  微信后台登录
+ */
+
+
+
+Route::group(['namespace'=>'admin','middleware' => 'admin','prefix'=>'admin'], function () {
+
+    Route::get('logout','loginController@logout');  //登出
+
+    Route::resource('login','loginController');  //登陆 模块
+
+    Route::resource('index','indexController');  //微信后台中心
+
+    Route::resource('login','loginController');
+
+
+
+});
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,7 +56,7 @@ Route::any('/wechat', 'WechatController@serve');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
 
 
 });

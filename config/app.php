@@ -161,7 +161,9 @@ return [
          *  youer server
          */
 
-        Overtrue\LaravelWechat\ServiceProvider::class,
+        Overtrue\LaravelWechat\ServiceProvider::class,  //wechat server
+        Zizaco\Entrust\EntrustServiceProvider::class,  //rbac server
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // ide help
     ],
 
     /*
@@ -209,6 +211,10 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+
+
+
     ],
 
 ];
